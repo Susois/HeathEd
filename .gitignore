@@ -1,1 +1,4 @@
+.HeathEd/bin
+.HeathEd/obj
+.package/
 .vs/
