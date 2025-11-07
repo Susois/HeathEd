@@ -1,0 +1,112 @@
+@model User
+@{
+    ViewData["Title"] = "Chi tiết Người dùng";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><i class="bi bi-person-circle"></i> Chi tiết Người dùng</h1>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.UserID" class="btn btn-warning">
+                <i class="bi bi-pencil"></i> Chỉnh sửa
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Quay lại
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Thông tin cá nhân</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">ID</dt>
+                        <dd class="col-sm-8">@Model.UserID</dd>
+
+                        <dt class="col-sm-4">Tên đăng nhập</dt>
+                        <dd class="col-sm-8"><strong>@Model.Username</strong></dd>
+
+                        <dt class="col-sm-4">Họ và tên</dt>
+                        <dd class="col-sm-8">@Model.FullName</dd>
+
+                        <dt class="col-sm-4">Email</dt>
+                        <dd class="col-sm-8">@Model.Email</dd>
+
+                        <dt class="col-sm-4">Vai trò</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.Role == "Student")
+                            {
+                                <span class="badge bg-primary">Sinh viên</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Giảng viên</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4">Trạng thái</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.IsActive)
+                            {
+                                <span class="badge bg-success">Đang hoạt động</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Đã khóa</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4">Ngày tạo</dt>
+                        <dd class="col-sm-8">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            @if (Model.Role == "Lecturer" && Model.ModulesAsLecturer.Any())
+            {
+                <div class="card mb-3">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Môn học giảng dạy</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            @foreach (var module in Model.ModulesAsLecturer.Where(m => m.IsActive))
+                            {
+                                <li class="list-group-item">
+                                    <strong>@module.ModuleCode</strong> - @module.ModuleName
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+
+            @if (Model.Role == "Student" && Model.StudentModules.Any())
+            {
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Môn học đã đăng ký</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            @foreach (var sm in Model.StudentModules)
+                            {
+                                <li class="list-group-item">
+                                    <strong>@sm.Module?.ModuleCode</strong> - @sm.Module?.ModuleName
+                                    <br />
+                                    <small class="text-muted">Đăng ký: @sm.EnrolledDate.ToString("dd/MM/yyyy")</small>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

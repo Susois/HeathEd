@@ -1,0 +1,94 @@
+@model CaseStudy
+@{
+    ViewData["Title"] = "Chi tiết Ca bệnh";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><i class="bi bi-clipboard2-pulse"></i> Chi tiết Ca bệnh</h1>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.CaseID" class="btn btn-warning">
+                <i class="bi bi-pencil"></i> Chỉnh sửa
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Quay lại
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-header bg-warning">
+                    <h4 class="mb-0">@Model.CaseTitle</h4>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h5><i class="bi bi-book"></i> Thông tin môn học</h5>
+                        <p>
+                            <strong>@Model.Module?.ModuleCode</strong> - @Model.Module?.ModuleName<br />
+                            <small class="text-muted">Giảng viên: @Model.Module?.Lecturer?.FullName</small>
+                        </p>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.Description))
+                    {
+                        <div class="mb-4">
+                            <h5><i class="bi bi-file-text"></i> Mô tả ca bệnh</h5>
+                            <p class="text-justify">@Model.Description</p>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.Symptoms))
+                    {
+                        <div class="mb-4">
+                            <h5><i class="bi bi-thermometer"></i> Triệu chứng</h5>
+                            <div class="alert alert-info">
+                                @Model.Symptoms
+                            </div>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.Diagnosis))
+                    {
+                        <div class="mb-4">
+                            <h5><i class="bi bi-check2-circle"></i> Chẩn đoán và điều trị</h5>
+                            <div class="alert alert-success">
+                                @Model.Diagnosis
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Thông tin</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="mb-0">
+                        <dt>ID Ca bệnh</dt>
+                        <dd>@Model.CaseID</dd>
+
+                        <dt>Trạng thái</dt>
+                        <dd>
+                            @if (Model.IsActive)
+                            {
+                                <span class="badge bg-success">Đang hoạt động</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Đã ẩn</span>
+                            }
+                        </dd>
+
+                        <dt>Ngày tạo</dt>
+                        <dd>@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

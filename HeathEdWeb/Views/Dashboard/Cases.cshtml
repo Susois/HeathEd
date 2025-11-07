@@ -1,0 +1,62 @@
+@model IEnumerable<HeathEdWeb.Models.CaseStudy>
+@{
+    ViewData["Title"] = "Danh sách Ca bệnh";
+}
+
+<div class="container-fluid px-4 mt-4">
+    <h1 class="mb-4"><i class="bi bi-clipboard2-pulse-fill"></i> Danh sách Ca bệnh</h1>
+
+    @if (Model.Any())
+    {
+        <div class="row g-3">
+            @foreach (var caseStudy in Model)
+            {
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-warning">
+                            <h6 class="mb-0 text-truncate" title="@caseStudy.CaseTitle">@caseStudy.CaseTitle</h6>
+                            <small class="text-muted">@caseStudy.Module?.ModuleCode - @caseStudy.Module?.ModuleName</small>
+                        </div>
+                        <div class="card-body">
+                            @if (!string.IsNullOrEmpty(caseStudy.Description))
+                            {
+                                <p class="card-text small">
+                                    <strong>Mô tả:</strong><br />
+                                    @(caseStudy.Description.Length > 100
+                                        ? caseStudy.Description.Substring(0, 100) + "..."
+                                        : caseStudy.Description)
+                                </p>
+                            }
+
+                            @if (!string.IsNullOrEmpty(caseStudy.Symptoms))
+                            {
+                                <p class="card-text text-info small">
+                                    <strong><i class="bi bi-thermometer"></i> Triệu chứng:</strong><br />
+                                    @(caseStudy.Symptoms.Length > 80
+                                        ? caseStudy.Symptoms.Substring(0, 80) + "..."
+                                        : caseStudy.Symptoms)
+                                </p>
+                            }
+                        </div>
+                        <div class="card-footer text-muted bg-light">
+                            <small>Ngày tạo: @caseStudy.CreatedDate.ToString("dd/MM/yyyy HH:mm")</small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <p class="text-muted mt-4">Tổng số: <strong>@Model.Count()</strong> ca bệnh</p>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle"></i> Không có ca bệnh nào trong hệ thống.
+        </div>
+    }
+
+    <div class="mt-3">
+        <a href="/" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Quay lại trang chủ
+        </a>
+    </div>
+</div>

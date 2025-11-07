@@ -1,0 +1,84 @@
+@model CaseStudy
+@{
+    ViewData["Title"] = "Chỉnh sửa Ca bệnh";
+}
+
+<div class="container mt-4">
+    <h1><i class="bi bi-pencil-square"></i> Chỉnh sửa Ca bệnh</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="CaseID" />
+                        <input type="hidden" asp-for="CreatedDate" />
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="CaseTitle" class="form-label">Tiêu đề ca bệnh</label>
+                            <input asp-for="CaseTitle" class="form-control" />
+                            <span asp-validation-for="CaseTitle" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ModuleID" class="form-label">Môn học</label>
+                            <select asp-for="ModuleID" class="form-select" asp-items="ViewBag.Modules">
+                            </select>
+                            <span asp-validation-for="ModuleID" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Mô tả ca bệnh</label>
+                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Symptoms" class="form-label">Triệu chứng</label>
+                            <textarea asp-for="Symptoms" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Symptoms" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Diagnosis" class="form-label">Chẩn đoán và điều trị</label>
+                            <textarea asp-for="Diagnosis" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Diagnosis" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input asp-for="IsActive" class="form-check-input" type="checkbox" />
+                                <label asp-for="IsActive" class="form-check-label">Đang hoạt động</label>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Cập nhật
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-x-circle"></i> Hủy
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5><i class="bi bi-info-circle"></i> Thông tin</h5>
+                    <p><strong>ID:</strong> @Model.CaseID</p>
+                    <p><strong>Ngày tạo:</strong> @Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

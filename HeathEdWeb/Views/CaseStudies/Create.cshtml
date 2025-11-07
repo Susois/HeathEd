@@ -1,0 +1,81 @@
+@model CaseStudy
+@{
+    ViewData["Title"] = "Thêm Ca bệnh mới";
+}
+
+<div class="container mt-4">
+    <h1><i class="bi bi-plus-circle"></i> Thêm Ca bệnh mới</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="CaseTitle" class="form-label">Tiêu đề ca bệnh</label>
+                            <input asp-for="CaseTitle" class="form-control" placeholder="VD: Ca bệnh viêm phổi cấp" />
+                            <span asp-validation-for="CaseTitle" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ModuleID" class="form-label">Môn học</label>
+                            <select asp-for="ModuleID" class="form-select" asp-items="ViewBag.Modules">
+                                <option value="">-- Chọn môn học --</option>
+                            </select>
+                            <span asp-validation-for="ModuleID" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Mô tả ca bệnh</label>
+                            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Mô tả tổng quan về ca bệnh..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Symptoms" class="form-label">Triệu chứng</label>
+                            <textarea asp-for="Symptoms" class="form-control" rows="4" placeholder="Liệt kê các triệu chứng của bệnh nhân..."></textarea>
+                            <span asp-validation-for="Symptoms" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Diagnosis" class="form-label">Chẩn đoán và điều trị</label>
+                            <textarea asp-for="Diagnosis" class="form-control" rows="4" placeholder="Chẩn đoán bệnh và phương pháp điều trị..."></textarea>
+                            <span asp-validation-for="Diagnosis" class="text-danger"></span>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Lưu
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-x-circle"></i> Hủy
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5><i class="bi bi-info-circle"></i> Hướng dẫn</h5>
+                    <ul>
+                        <li>Tiêu đề nên ngắn gọn, súc tích</li>
+                        <li>Chọn môn học phù hợp với ca bệnh</li>
+                        <li>Mô tả tổng quan về tình trạng bệnh nhân</li>
+                        <li>Triệu chứng: Liệt kê các dấu hiệu lâm sàng</li>
+                        <li>Chẩn đoán: Kết luận bệnh và phương pháp điều trị</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

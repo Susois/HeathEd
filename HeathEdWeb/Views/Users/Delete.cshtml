@@ -1,0 +1,57 @@
+@model User
+@{
+    ViewData["Title"] = "Xóa Người dùng";
+}
+
+<div class="container mt-4">
+    <h1 class="text-danger"><i class="bi bi-trash"></i> Xóa Người dùng</h1>
+    <hr />
+
+    <div class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <strong>Cảnh báo!</strong> Bạn có chắc chắn muốn xóa người dùng này không?
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">ID</dt>
+                <dd class="col-sm-9">@Model.UserID</dd>
+
+                <dt class="col-sm-3">Tên đăng nhập</dt>
+                <dd class="col-sm-9">@Model.Username</dd>
+
+                <dt class="col-sm-3">Họ và tên</dt>
+                <dd class="col-sm-9">@Model.FullName</dd>
+
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.Email</dd>
+
+                <dt class="col-sm-3">Vai trò</dt>
+                <dd class="col-sm-9">
+                    @if (Model.Role == "Student")
+                    {
+                        <span class="badge bg-primary">Sinh viên</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">Giảng viên</span>
+                    }
+                </dd>
+
+                <dt class="col-sm-3">Ngày tạo</dt>
+                <dd class="col-sm-9">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</dd>
+            </dl>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="UserID" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Xác nhận xóa
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Hủy
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

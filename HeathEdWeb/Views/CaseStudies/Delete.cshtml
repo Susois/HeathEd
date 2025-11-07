@@ -1,0 +1,50 @@
+@model CaseStudy
+@{
+    ViewData["Title"] = "Xóa Ca bệnh";
+}
+
+<div class="container mt-4">
+    <h1 class="text-danger"><i class="bi bi-trash"></i> Xóa Ca bệnh</h1>
+    <hr />
+
+    <div class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <strong>Cảnh báo!</strong> Bạn có chắc chắn muốn xóa ca bệnh này không?
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-warning">
+            <h5 class="mb-0">@Model.CaseTitle</h5>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Môn học</dt>
+                <dd class="col-sm-9">
+                    <strong>@Model.Module?.ModuleCode</strong> - @Model.Module?.ModuleName
+                </dd>
+
+                <dt class="col-sm-3">Mô tả</dt>
+                <dd class="col-sm-9">@Model.Description</dd>
+
+                <dt class="col-sm-3">Triệu chứng</dt>
+                <dd class="col-sm-9">@Model.Symptoms</dd>
+
+                <dt class="col-sm-3">Chẩn đoán</dt>
+                <dd class="col-sm-9">@Model.Diagnosis</dd>
+
+                <dt class="col-sm-3">Ngày tạo</dt>
+                <dd class="col-sm-9">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</dd>
+            </dl>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="CaseID" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Xác nhận xóa
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Hủy
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

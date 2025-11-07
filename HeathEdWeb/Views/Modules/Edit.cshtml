@@ -1,0 +1,78 @@
+@model Module
+@{
+    ViewData["Title"] = "Chỉnh sửa Môn học";
+}
+
+<div class="container mt-4">
+    <h1><i class="bi bi-pencil-square"></i> Chỉnh sửa Môn học</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="ModuleID" />
+                        <input type="hidden" asp-for="CreatedDate" />
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="ModuleCode" class="form-label">Mã môn học</label>
+                            <input asp-for="ModuleCode" class="form-control" readonly />
+                            <small class="text-muted">Không thể thay đổi mã môn học</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ModuleName" class="form-label">Tên môn học</label>
+                            <input asp-for="ModuleName" class="form-control" />
+                            <span asp-validation-for="ModuleName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Mô tả</label>
+                            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LecturerID" class="form-label">Giảng viên</label>
+                            <select asp-for="LecturerID" class="form-select" asp-items="ViewBag.Lecturers">
+                            </select>
+                            <span asp-validation-for="LecturerID" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input asp-for="IsActive" class="form-check-input" type="checkbox" />
+                                <label asp-for="IsActive" class="form-check-label">Đang hoạt động</label>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Cập nhật
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-x-circle"></i> Hủy
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5><i class="bi bi-info-circle"></i> Thông tin</h5>
+                    <p><strong>ID:</strong> @Model.ModuleID</p>
+                    <p><strong>Ngày tạo:</strong> @Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
