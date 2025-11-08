@@ -7,7 +7,7 @@ namespace HeathEd
         // Connection string - Sử dụng Data Source từ SQL Server Management Studio của bạn
         // Data Source: su (tên server của bạn)
         // Database: HeathEdDB
-        public static string ConnectionString = "Data Source=su;Initial Catalog=HeathEdDB;Integrated Security=True;TrustServerCertificate=True;";
+        public static string ConnectionString = "Data Source=NHAN;User Id=sa;Password=nhandz123;Initial Catalog=HeathEdDB;Integrated Security=True;TrustServerCertificate=True;";
 
         public static SqlConnection GetConnection()
         {
