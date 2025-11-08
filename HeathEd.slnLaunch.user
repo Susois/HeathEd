@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "HeathEd\\HeathEd.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "HeathEdWeb\\HeathEdWeb.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "HeathEdAPI\\HeathEdAPI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

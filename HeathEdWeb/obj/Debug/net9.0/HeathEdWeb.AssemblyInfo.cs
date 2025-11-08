@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeathEdWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eddd73cca62aeed5b7b4d9546b99c20e73d03a23")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6df5efdae9494af4df08569b6b245fcb4446a27e")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeathEdWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeathEdWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
