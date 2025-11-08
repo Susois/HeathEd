@@ -274,7 +274,7 @@ namespace HeathEd
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "PatientDiagnosisForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "HeathEd - Chẩn đoán tương tác";
             this.Load += new System.EventHandler(this.PatientDiagnosisForm_Load);
             this.grpPatientInfo.ResumeLayout(false);

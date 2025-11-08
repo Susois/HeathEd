@@ -210,5 +210,10 @@ namespace HeathEd
         {
 
         }
+
+        private void cboAvailableStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

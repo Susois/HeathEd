@@ -16,10 +16,10 @@ D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.ModuleStudentsForm.reso
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.SelectModuleForm.resources
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.exe
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.pdb
-D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.exe.config
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.PatientDiagnosisForm.resources
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\bin\Debug\Newtonsoft.Json.dll
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\bin\Debug\Newtonsoft.Json.xml
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.ExaminationResultsForm.resources
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.ExaminationSelectionForm.resources
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.csproj.Up2Date
+D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.exe.config
