@@ -17,9 +17,9 @@ namespace HeathEd
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -377,19 +377,19 @@ namespace HeathEd
             // 
             // chartPerformance
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartPerformance.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.chartPerformance.ChartAreas.Add(chartArea1);
             this.chartPerformance.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chartPerformance.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chartPerformance.Legends.Add(legend1);
             this.chartPerformance.Location = new System.Drawing.Point(10, 52);
             this.chartPerformance.Name = "chartPerformance";
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Score";
-            this.chartPerformance.Series.Add(series3);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Score";
+            this.chartPerformance.Series.Add(series1);
             this.chartPerformance.Size = new System.Drawing.Size(470, 268);
             this.chartPerformance.TabIndex = 1;
             this.chartPerformance.Text = "chart1";

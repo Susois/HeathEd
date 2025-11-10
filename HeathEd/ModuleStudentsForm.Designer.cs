@@ -59,9 +59,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lblStudentCount);
             this.groupBox1.Controls.Add(this.btnRemoveStudent);
             this.groupBox1.Controls.Add(this.dgvStudents);
@@ -70,7 +67,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1137, 576);
+            this.groupBox1.Size = new System.Drawing.Size(1038, 402);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách sinh viên trong lớp";
@@ -80,7 +77,7 @@
             this.lblStudentCount.AutoSize = true;
             this.lblStudentCount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStudentCount.ForeColor = System.Drawing.Color.DimGray;
-            this.lblStudentCount.Location = new System.Drawing.Point(29, 506);
+            this.lblStudentCount.Location = new System.Drawing.Point(29, 334);
             this.lblStudentCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStudentCount.Name = "lblStudentCount";
             this.lblStudentCount.Size = new System.Drawing.Size(170, 25);
@@ -97,7 +94,7 @@
             this.btnRemoveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveStudent.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnRemoveStudent.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveStudent.Location = new System.Drawing.Point(906, 506);
+            this.btnRemoveStudent.Location = new System.Drawing.Point(807, 332);
             this.btnRemoveStudent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRemoveStudent.Name = "btnRemoveStudent";
             this.btnRemoveStudent.Size = new System.Drawing.Size(210, 57);
@@ -110,7 +107,8 @@
             // 
             this.dgvStudents.AllowUserToAddRows = false;
             this.dgvStudents.AllowUserToDeleteRows = false;
-            this.dgvStudents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvStudents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStudents.BackgroundColor = System.Drawing.Color.White;
@@ -124,22 +122,20 @@
             this.dgvStudents.RowHeadersVisible = false;
             this.dgvStudents.RowHeadersWidth = 62;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(1086, 432);
+            this.dgvStudents.Size = new System.Drawing.Size(987, 258);
             this.dgvStudents.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.btnAddStudent);
             this.groupBox2.Controls.Add(this.cboAvailableStudents);
             this.groupBox2.Controls.Add(this.lblSelectStudent);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(38, 719);
+            this.groupBox2.Location = new System.Drawing.Point(39, 558);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(1137, 111);
+            this.groupBox2.Size = new System.Drawing.Size(1038, 111);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thêm sinh viên vào lớp";
@@ -154,7 +150,7 @@
             this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAddStudent.ForeColor = System.Drawing.Color.White;
-            this.btnAddStudent.Location = new System.Drawing.Point(906, 28);
+            this.btnAddStudent.Location = new System.Drawing.Point(807, 28);
             this.btnAddStudent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(210, 62);
@@ -172,7 +168,7 @@
             this.cboAvailableStudents.Location = new System.Drawing.Point(210, 42);
             this.cboAvailableStudents.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboAvailableStudents.Name = "cboAvailableStudents";
-            this.cboAvailableStudents.Size = new System.Drawing.Size(620, 36);
+            this.cboAvailableStudents.Size = new System.Drawing.Size(521, 36);
             this.cboAvailableStudents.TabIndex = 1;
             this.cboAvailableStudents.SelectedIndexChanged += new System.EventHandler(this.cboAvailableStudents_SelectedIndexChanged);
             // 
@@ -189,14 +185,13 @@
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.Gray;
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1130, 840);
+            this.btnClose.Location = new System.Drawing.Point(927, 692);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(150, 62);
@@ -210,7 +205,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1384, 936);
+            this.ClientSize = new System.Drawing.Size(1119, 779);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

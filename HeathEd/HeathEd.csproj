@@ -105,6 +105,12 @@
     <Compile Include="ModuleStudentsForm.Designer.cs">
       <DependentUpon>ModuleStudentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleDashboardForm.Designer.cs">
+      <DependentUpon>ModuleDashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientDiagnosisForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleStudentsForm.resx">
       <DependentUpon>ModuleStudentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleDashboardForm.resx">
+      <DependentUpon>ModuleDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientDiagnosisForm.resx">
       <DependentUpon>PatientDiagnosisForm.cs</DependentUpon>
