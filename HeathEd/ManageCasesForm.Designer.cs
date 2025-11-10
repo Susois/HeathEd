@@ -62,6 +62,9 @@
             // 
             this.dgvCases.AllowUserToAddRows = false;
             this.dgvCases.AllowUserToDeleteRows = false;
+            this.dgvCases.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCases.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCases.BackgroundColor = System.Drawing.Color.White;
             this.dgvCases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -79,6 +82,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.lblSearch);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnSearch);
@@ -141,6 +146,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lblCaseTitle);
             this.groupBox1.Controls.Add(this.txtCaseTitle);
             this.groupBox1.Controls.Add(this.lblDescription);
@@ -165,6 +172,7 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ca bệnh";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblCaseTitle
             // 
@@ -232,12 +240,13 @@
             // 
             this.lblDiagnosis.AutoSize = true;
             this.lblDiagnosis.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblDiagnosis.Location = new System.Drawing.Point(30, 438);
+            this.lblDiagnosis.Location = new System.Drawing.Point(30, 422);
             this.lblDiagnosis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDiagnosis.Name = "lblDiagnosis";
             this.lblDiagnosis.Size = new System.Drawing.Size(110, 28);
             this.lblDiagnosis.TabIndex = 6;
             this.lblDiagnosis.Text = "Chẩn đoán:";
+            this.lblDiagnosis.Click += new System.EventHandler(this.lblDiagnosis_Click);
             // 
             // txtDiagnosis
             // 
@@ -253,7 +262,7 @@
             // 
             this.lblModule.AutoSize = true;
             this.lblModule.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblModule.Location = new System.Drawing.Point(30, 585);
+            this.lblModule.Location = new System.Drawing.Point(30, 557);
             this.lblModule.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblModule.Name = "lblModule";
             this.lblModule.Size = new System.Drawing.Size(86, 28);
@@ -271,7 +280,7 @@
             this.cboModule.Size = new System.Drawing.Size(530, 36);
             this.cboModule.TabIndex = 9;
             // 
-            // chkIsActiveư
+            // chkIsActive
             // 
             this.chkIsActive.AutoSize = true;
             this.chkIsActive.Checked = true;
@@ -347,6 +356,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.DimGray;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -371,13 +381,12 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvCases);
             this.Controls.Add(this.lblTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximizeBox = true;
             this.MinimumSize = new System.Drawing.Size(1400, 950);
             this.Name = "ManageCasesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý ca bệnh";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ManageCasesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCases)).EndInit();
             this.panel1.ResumeLayout(false);

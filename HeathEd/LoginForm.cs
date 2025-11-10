@@ -29,6 +29,21 @@ namespace HeathEd
             txtPassword.UseSystemPasswordChar = false;
         }
 
+        public void ResetForm()
+        {
+            // Clear and reset username field
+            txtUsername.Text = USERNAME_PLACEHOLDER;
+            txtUsername.ForeColor = Color.Gray;
+
+            // Clear and reset password field
+            txtPassword.Text = PASSWORD_PLACEHOLDER;
+            txtPassword.ForeColor = Color.Gray;
+            txtPassword.UseSystemPasswordChar = false;
+
+            // Focus on username field
+            txtUsername.Focus();
+        }
+
         private void txtUsername_Enter(object sender, EventArgs e)
         {
             if (txtUsername.Text == USERNAME_PLACEHOLDER)
@@ -136,11 +151,11 @@ namespace HeathEd
                                 Form nextForm;
                                 if (UserSession.IsStudent)
                                 {
-                                    nextForm = new StudentMainForm();
+                                    nextForm = new StudentMainForm(this);
                                 }
                                 else if (UserSession.IsLecturer)
                                 {
-                                    nextForm = new LecturerMainForm();
+                                    nextForm = new LecturerMainForm(this);
                                 }
                                 else
                                 {
@@ -151,7 +166,6 @@ namespace HeathEd
 
                                 // Hide login form and show main form
                                 this.Hide();
-                                nextForm.FormClosed += (s, args) => this.Close();
                                 nextForm.Show();
                             }
                             else

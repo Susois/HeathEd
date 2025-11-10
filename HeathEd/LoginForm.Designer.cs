@@ -44,6 +44,7 @@ namespace HeathEd
             //
             // panelLogin
             //
+            this.panelLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelLogin.BackColor = System.Drawing.Color.White;
             this.panelLogin.Controls.Add(this.lblTitle);
             this.panelLogin.Controls.Add(this.lblSubtitle);
@@ -147,6 +148,7 @@ namespace HeathEd
             //
             // lblVersion
             //
+            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblVersion.ForeColor = System.Drawing.Color.White;
@@ -162,11 +164,12 @@ namespace HeathEd
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 550);
             this.Controls.Add(this.panelMain);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.MaximizeBox = true;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HeathEd - Đăng nhập";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             this.panelLogin.ResumeLayout(false);

@@ -59,6 +59,7 @@ namespace HeathEd
             // 
             // lblCount
             // 
+            this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblCount.ForeColor = System.Drawing.Color.DimGray;
@@ -73,6 +74,9 @@ namespace HeathEd
             // 
             this.dgvModules.AllowUserToAddRows = false;
             this.dgvModules.AllowUserToDeleteRows = false;
+            this.dgvModules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvModules.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvModules.BackgroundColor = System.Drawing.Color.White;
             this.dgvModules.ColumnHeadersHeight = 35;
@@ -91,6 +95,8 @@ namespace HeathEd
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.lblSearch);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnSearch);
@@ -157,6 +163,8 @@ namespace HeathEd
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Location = new System.Drawing.Point(885, 100);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -197,6 +205,7 @@ namespace HeathEd
             this.lblModuleCode.Size = new System.Drawing.Size(91, 28);
             this.lblModuleCode.TabIndex = 0;
             this.lblModuleCode.Text = "Mã lớp: *";
+            this.lblModuleCode.Click += new System.EventHandler(this.lblModuleCode_Click);
             // 
             // txtModuleCode
             // 
@@ -336,6 +345,7 @@ namespace HeathEd
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.DimGray;
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
@@ -363,12 +373,11 @@ namespace HeathEd
             this.Controls.Add(this.dgvModules);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.lblTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximizeBox = false;
             this.Name = "ManageModulesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý lớp học";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ManageModulesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvModules)).EndInit();
             this.panel1.ResumeLayout(false);

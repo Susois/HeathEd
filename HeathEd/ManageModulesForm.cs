@@ -405,5 +405,10 @@ namespace HeathEd
             chkIsActive.Checked = true;
             txtModuleCode.Focus();
         }
+
+        private void lblModuleCode_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

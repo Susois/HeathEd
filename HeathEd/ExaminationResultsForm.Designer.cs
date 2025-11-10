@@ -30,12 +30,12 @@ namespace HeathEd
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpExamList = new System.Windows.Forms.GroupBox();
-            this.dgvExaminations = new System.Windows.Forms.DataGridView();
             this.lblExamCount = new System.Windows.Forms.Label();
+            this.dgvExaminations = new System.Windows.Forms.DataGridView();
             this.grpResults = new System.Windows.Forms.GroupBox();
-            this.txtResults = new System.Windows.Forms.TextBox();
-            this.picImage = new System.Windows.Forms.PictureBox();
             this.lblImageInfo = new System.Windows.Forms.Label();
+            this.picImage = new System.Windows.Forms.PictureBox();
+            this.txtResults = new System.Windows.Forms.TextBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.grpExamList.SuspendLayout();
@@ -43,20 +43,23 @@ namespace HeathEd
             this.grpResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // lblTitle
-            //
+            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lblTitle.Location = new System.Drawing.Point(30, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(400, 38);
+            this.lblTitle.Size = new System.Drawing.Size(314, 38);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "KẾT QUẢ XÉT NGHIỆM";
-            //
+            // 
             // grpExamList
-            //
+            // 
+            this.grpExamList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpExamList.Controls.Add(this.lblExamCount);
             this.grpExamList.Controls.Add(this.dgvExaminations);
             this.grpExamList.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -66,11 +69,25 @@ namespace HeathEd
             this.grpExamList.TabIndex = 1;
             this.grpExamList.TabStop = false;
             this.grpExamList.Text = "Danh sách xét nghiệm đã yêu cầu";
-            //
+            // 
+            // lblExamCount
+            // 
+            this.lblExamCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblExamCount.AutoSize = true;
+            this.lblExamCount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblExamCount.Location = new System.Drawing.Point(15, 315);
+            this.lblExamCount.Name = "lblExamCount";
+            this.lblExamCount.Size = new System.Drawing.Size(189, 25);
+            this.lblExamCount.TabIndex = 1;
+            this.lblExamCount.Text = "Tổng số xét nghiệm: 0";
+            // 
             // dgvExaminations
-            //
+            // 
             this.dgvExaminations.AllowUserToAddRows = false;
             this.dgvExaminations.AllowUserToDeleteRows = false;
+            this.dgvExaminations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvExaminations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvExaminations.BackgroundColor = System.Drawing.Color.White;
             this.dgvExaminations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -84,19 +101,11 @@ namespace HeathEd
             this.dgvExaminations.Size = new System.Drawing.Size(620, 270);
             this.dgvExaminations.TabIndex = 0;
             this.dgvExaminations.SelectionChanged += new System.EventHandler(this.dgvExaminations_SelectionChanged);
-            //
-            // lblExamCount
-            //
-            this.lblExamCount.AutoSize = true;
-            this.lblExamCount.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblExamCount.Location = new System.Drawing.Point(15, 315);
-            this.lblExamCount.Name = "lblExamCount";
-            this.lblExamCount.Size = new System.Drawing.Size(200, 25);
-            this.lblExamCount.TabIndex = 1;
-            this.lblExamCount.Text = "Tổng số xét nghiệm: 0";
-            //
+            // 
             // grpResults
-            //
+            // 
+            this.grpResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpResults.Controls.Add(this.lblImageInfo);
             this.grpResults.Controls.Add(this.picImage);
             this.grpResults.Controls.Add(this.txtResults);
@@ -107,9 +116,38 @@ namespace HeathEd
             this.grpResults.TabIndex = 2;
             this.grpResults.TabStop = false;
             this.grpResults.Text = "Chi tiết kết quả";
-            //
+            // 
+            // lblImageInfo
+            // 
+            this.lblImageInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblImageInfo.AutoSize = true;
+            this.lblImageInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblImageInfo.Location = new System.Drawing.Point(15, 395);
+            this.lblImageInfo.Name = "lblImageInfo";
+            this.lblImageInfo.Size = new System.Drawing.Size(151, 25);
+            this.lblImageInfo.TabIndex = 2;
+            this.lblImageInfo.Text = "Hình ảnh kết quả:";
+            this.lblImageInfo.Visible = false;
+            // 
+            // picImage
+            // 
+            this.picImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picImage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picImage.Location = new System.Drawing.Point(15, 420);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(520, 150);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picImage.TabIndex = 1;
+            this.picImage.TabStop = false;
+            // 
             // txtResults
-            //
+            // 
+            this.txtResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResults.BackColor = System.Drawing.Color.White;
             this.txtResults.Font = new System.Drawing.Font("Consolas", 10F);
             this.txtResults.Location = new System.Drawing.Point(15, 35);
@@ -119,31 +157,10 @@ namespace HeathEd
             this.txtResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtResults.Size = new System.Drawing.Size(520, 350);
             this.txtResults.TabIndex = 0;
-            //
-            // picImage
-            //
-            this.picImage.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picImage.Location = new System.Drawing.Point(15, 420);
-            this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(520, 150);
-            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picImage.TabIndex = 1;
-            this.picImage.TabStop = false;
-            //
-            // lblImageInfo
-            //
-            this.lblImageInfo.AutoSize = true;
-            this.lblImageInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblImageInfo.Location = new System.Drawing.Point(15, 395);
-            this.lblImageInfo.Name = "lblImageInfo";
-            this.lblImageInfo.Size = new System.Drawing.Size(150, 25);
-            this.lblImageInfo.TabIndex = 2;
-            this.lblImageInfo.Text = "Hình ảnh kết quả:";
-            this.lblImageInfo.Visible = false;
-            //
+            // 
             // btnPrint
-            //
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrint.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -155,9 +172,10 @@ namespace HeathEd
             this.btnPrint.Text = "🖨️ In kết quả";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            //
+            // 
             // btnClose
-            //
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.LightGray;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -168,9 +186,9 @@ namespace HeathEd
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            //
+            // 
             // ExaminationResultsForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -180,12 +198,11 @@ namespace HeathEd
             this.Controls.Add(this.grpResults);
             this.Controls.Add(this.grpExamList);
             this.Controls.Add(this.lblTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ExaminationResultsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HeathEd - Kết quả xét nghiệm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ExaminationResultsForm_Load);
             this.grpExamList.ResumeLayout(false);
             this.grpExamList.PerformLayout();
@@ -195,6 +212,7 @@ namespace HeathEd
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
     }
 }

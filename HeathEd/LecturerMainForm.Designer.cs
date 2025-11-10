@@ -38,7 +38,8 @@ namespace HeathEd
             this.SuspendLayout();
             // 
             // lblWelcome
-            // 
+            //
+            this.lblWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblWelcome.ForeColor = System.Drawing.Color.DarkSlateBlue;
@@ -49,7 +50,8 @@ namespace HeathEd
             this.lblWelcome.Text = "Xin chào, Giảng viên";
             // 
             // lblTitle
-            // 
+            //
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(315, 80);
@@ -59,7 +61,8 @@ namespace HeathEd
             this.lblTitle.Text = "HỆ THỐNG QUẢN LÝ GIẢNG VIÊN";
             // 
             // panelMenu
-            // 
+            //
+            this.panelMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelMenu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelMenu.Controls.Add(this.btnManageModules);
             this.panelMenu.Controls.Add(this.btnManageStudents);
@@ -128,6 +131,7 @@ namespace HeathEd
             // 
             // btnLogout
             //
+            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.BackColor = System.Drawing.Color.LightGray;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -140,7 +144,7 @@ namespace HeathEd
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // LecturerMainForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -149,11 +153,12 @@ namespace HeathEd
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblWelcome);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.MaximizeBox = true;
             this.Name = "LecturerMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HeathEd - Giảng viên";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LecturerMainForm_Load_1);
             this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);

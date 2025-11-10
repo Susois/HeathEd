@@ -28,6 +28,7 @@
             //
             // lblTitle
             //
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.MediumSlateBlue;
@@ -52,6 +53,9 @@
             //
             this.dgvModules.AllowUserToAddRows = false;
             this.dgvModules.AllowUserToDeleteRows = false;
+            this.dgvModules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvModules.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvModules.BackgroundColor = System.Drawing.Color.White;
             this.dgvModules.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -70,6 +74,7 @@
             //
             // lblCount
             //
+            this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblCount.ForeColor = System.Drawing.Color.DimGray;
@@ -81,6 +86,7 @@
             //
             // btnSelect
             //
+            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelect.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnSelect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSelect.FlatAppearance.BorderSize = 0;
@@ -97,6 +103,7 @@
             //
             // btnCancel
             //
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Gray;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
@@ -123,12 +130,13 @@
             this.Controls.Add(this.dgvModules);
             this.Controls.Add(this.lblInstruction);
             this.Controls.Add(this.lblTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.MaximizeBox = true;
             this.MinimizeBox = false;
             this.Name = "SelectModuleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Chọn lớp học";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SelectModuleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvModules)).EndInit();
             this.ResumeLayout(false);

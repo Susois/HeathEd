@@ -341,5 +341,15 @@ namespace HeathEd
                 cboModule.SelectedIndex = 0;
             txtCaseTitle.Focus();
         }
+
+        private void lblDiagnosis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

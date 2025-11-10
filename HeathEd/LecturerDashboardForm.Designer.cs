@@ -43,7 +43,8 @@
             this.SuspendLayout();
             // 
             // lblTitle
-            // 
+            //
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.MediumSlateBlue;
@@ -67,7 +68,8 @@
             this.lblWelcome.Text = "Chào mừng trở lại, Giảng viên!";
             // 
             // panel1
-            // 
+            //
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel1.Controls.Add(this.lblModuleCount);
             this.panel1.Controls.Add(this.lblModuleTitle);
@@ -102,7 +104,8 @@
             this.lblModuleTitle.Text = "TỔNG SỐ LỚP HỌC";
             // 
             // panel2
-            // 
+            //
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.SeaGreen;
             this.panel2.Controls.Add(this.lblStudentCount);
             this.panel2.Controls.Add(this.lblStudentTitle);
@@ -137,7 +140,8 @@
             this.lblStudentTitle.Text = "TỔNG SỐ SINH VIÊN";
             // 
             // panel3
-            // 
+            //
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Coral;
             this.panel3.Controls.Add(this.lblCaseCount);
             this.panel3.Controls.Add(this.lblCaseTitle);
@@ -172,7 +176,9 @@
             this.lblCaseTitle.Text = "TỔNG SỐ CA BỆNH";
             // 
             // groupBox1
-            // 
+            //
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.dgvRecentModules);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(39, 369);
@@ -185,9 +191,12 @@
             this.groupBox1.Text = "Lớp học gần đây";
             // 
             // dgvRecentModules
-            // 
+            //
             this.dgvRecentModules.AllowUserToAddRows = false;
             this.dgvRecentModules.AllowUserToDeleteRows = false;
+            this.dgvRecentModules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRecentModules.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRecentModules.BackgroundColor = System.Drawing.Color.White;
             this.dgvRecentModules.ColumnHeadersHeight = 35;
@@ -203,7 +212,10 @@
             this.dgvRecentModules.TabIndex = 0;
             // 
             // groupBox2
-            // 
+            //
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dgvRecentCases);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.groupBox2.Location = new System.Drawing.Point(39, 660);
@@ -216,9 +228,12 @@
             this.groupBox2.Text = "Ca bệnh gần đây";
             // 
             // dgvRecentCases
-            // 
+            //
             this.dgvRecentCases.AllowUserToAddRows = false;
             this.dgvRecentCases.AllowUserToDeleteRows = false;
+            this.dgvRecentCases.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRecentCases.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRecentCases.BackgroundColor = System.Drawing.Color.White;
             this.dgvRecentCases.ColumnHeadersHeight = 35;
@@ -234,7 +249,8 @@
             this.dgvRecentCases.TabIndex = 0;
             // 
             // btnClose
-            // 
+            //
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.Gray;
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
@@ -251,7 +267,7 @@
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // LecturerDashboardForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -264,12 +280,13 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lblTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximizeBox = false;
+            this.MaximizeBox = true;
             this.Name = "LecturerDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard Giảng viên";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LecturerDashboardForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

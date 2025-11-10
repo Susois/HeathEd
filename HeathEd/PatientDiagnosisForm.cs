@@ -369,5 +369,25 @@ namespace HeathEd
         {
 
         }
+
+        private void txtPatientInfo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpPatientInfo_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTreatment_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTreatmentPrompt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

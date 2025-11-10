@@ -71,17 +71,23 @@ namespace HeathEd
             // 
             // grpPatientInfo
             // 
+            this.grpPatientInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.grpPatientInfo.Controls.Add(this.txtPatientInfo);
             this.grpPatientInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.grpPatientInfo.Location = new System.Drawing.Point(30, 70);
             this.grpPatientInfo.Name = "grpPatientInfo";
-            this.grpPatientInfo.Size = new System.Drawing.Size(550, 300);
+            this.grpPatientInfo.Size = new System.Drawing.Size(550, 306);
             this.grpPatientInfo.TabIndex = 1;
             this.grpPatientInfo.TabStop = false;
             this.grpPatientInfo.Text = "Thông tin bệnh nhân";
+            this.grpPatientInfo.Enter += new System.EventHandler(this.grpPatientInfo_Enter);
             // 
             // txtPatientInfo
             // 
+            this.txtPatientInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPatientInfo.BackColor = System.Drawing.Color.White;
             this.txtPatientInfo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtPatientInfo.Location = new System.Drawing.Point(15, 30);
@@ -89,11 +95,14 @@ namespace HeathEd
             this.txtPatientInfo.Name = "txtPatientInfo";
             this.txtPatientInfo.ReadOnly = true;
             this.txtPatientInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPatientInfo.Size = new System.Drawing.Size(520, 255);
+            this.txtPatientInfo.Size = new System.Drawing.Size(520, 261);
             this.txtPatientInfo.TabIndex = 0;
+            this.txtPatientInfo.TextChanged += new System.EventHandler(this.txtPatientInfo_TextChanged);
             // 
             // grpImages
             // 
+            this.grpImages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpImages.Controls.Add(this.lstImages);
             this.grpImages.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.grpImages.Location = new System.Drawing.Point(600, 70);
@@ -105,6 +114,9 @@ namespace HeathEd
             // 
             // lstImages
             // 
+            this.lstImages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstImages.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lstImages.FormattingEnabled = true;
             this.lstImages.ItemHeight = 25;
@@ -115,6 +127,9 @@ namespace HeathEd
             // 
             // grpExaminations
             // 
+            this.grpExaminations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpExaminations.Controls.Add(this.btnViewResults);
             this.grpExaminations.Controls.Add(this.btnRequestExamination);
             this.grpExaminations.Controls.Add(this.lstExaminations);
@@ -128,6 +143,7 @@ namespace HeathEd
             // 
             // btnViewResults
             // 
+            this.btnViewResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnViewResults.BackColor = System.Drawing.Color.SeaGreen;
             this.btnViewResults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewResults.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -142,6 +158,7 @@ namespace HeathEd
             // 
             // btnRequestExamination
             // 
+            this.btnRequestExamination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRequestExamination.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnRequestExamination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRequestExamination.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -156,6 +173,9 @@ namespace HeathEd
             // 
             // lstExaminations
             // 
+            this.lstExaminations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstExaminations.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lstExaminations.FormattingEnabled = true;
             this.lstExaminations.ItemHeight = 25;
@@ -166,26 +186,29 @@ namespace HeathEd
             // 
             // grpDiagnosis
             // 
+            this.grpDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.grpDiagnosis.Controls.Add(this.btnSubmitDiagnosis);
             this.grpDiagnosis.Controls.Add(this.txtTreatment);
             this.grpDiagnosis.Controls.Add(this.lblTreatmentPrompt);
             this.grpDiagnosis.Controls.Add(this.txtDiagnosis);
             this.grpDiagnosis.Controls.Add(this.lblDiagnosisPrompt);
             this.grpDiagnosis.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.grpDiagnosis.Location = new System.Drawing.Point(30, 390);
+            this.grpDiagnosis.Location = new System.Drawing.Point(30, 382);
             this.grpDiagnosis.Name = "grpDiagnosis";
-            this.grpDiagnosis.Size = new System.Drawing.Size(550, 303);
+            this.grpDiagnosis.Size = new System.Drawing.Size(550, 343);
             this.grpDiagnosis.TabIndex = 4;
             this.grpDiagnosis.TabStop = false;
             this.grpDiagnosis.Text = "Chẩn đoán của bạn";
             // 
             // btnSubmitDiagnosis
             // 
+            this.btnSubmitDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSubmitDiagnosis.BackColor = System.Drawing.Color.Crimson;
             this.btnSubmitDiagnosis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmitDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnSubmitDiagnosis.ForeColor = System.Drawing.Color.White;
-            this.btnSubmitDiagnosis.Location = new System.Drawing.Point(15, 245);
+            this.btnSubmitDiagnosis.Location = new System.Drawing.Point(20, 285);
             this.btnSubmitDiagnosis.Name = "btnSubmitDiagnosis";
             this.btnSubmitDiagnosis.Size = new System.Drawing.Size(520, 52);
             this.btnSubmitDiagnosis.TabIndex = 4;
@@ -195,37 +218,47 @@ namespace HeathEd
             // 
             // txtTreatment
             // 
+            this.txtTreatment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTreatment.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtTreatment.Location = new System.Drawing.Point(15, 185);
+            this.txtTreatment.Location = new System.Drawing.Point(15, 212);
             this.txtTreatment.Multiline = true;
             this.txtTreatment.Name = "txtTreatment";
             this.txtTreatment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtTreatment.Size = new System.Drawing.Size(520, 50);
             this.txtTreatment.TabIndex = 3;
+            this.txtTreatment.TextChanged += new System.EventHandler(this.txtTreatment_TextChanged);
             // 
             // lblTreatmentPrompt
             // 
+            this.lblTreatmentPrompt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTreatmentPrompt.AutoSize = true;
             this.lblTreatmentPrompt.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblTreatmentPrompt.Location = new System.Drawing.Point(15, 155);
+            this.lblTreatmentPrompt.Location = new System.Drawing.Point(15, 176);
             this.lblTreatmentPrompt.Name = "lblTreatmentPrompt";
             this.lblTreatmentPrompt.Size = new System.Drawing.Size(322, 25);
             this.lblTreatmentPrompt.TabIndex = 2;
             this.lblTreatmentPrompt.Text = "Phương án điều trị (không bắt buộc):";
+            this.lblTreatmentPrompt.Click += new System.EventHandler(this.lblTreatmentPrompt_Click);
             // 
             // txtDiagnosis
             // 
+            this.txtDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiagnosis.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtDiagnosis.Location = new System.Drawing.Point(15, 65);
             this.txtDiagnosis.Multiline = true;
             this.txtDiagnosis.Name = "txtDiagnosis";
             this.txtDiagnosis.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDiagnosis.Size = new System.Drawing.Size(520, 80);
+            this.txtDiagnosis.Size = new System.Drawing.Size(520, 98);
             this.txtDiagnosis.TabIndex = 1;
             this.txtDiagnosis.TextChanged += new System.EventHandler(this.txtDiagnosis_TextChanged);
             // 
             // lblDiagnosisPrompt
             // 
+            this.lblDiagnosisPrompt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDiagnosisPrompt.AutoSize = true;
             this.lblDiagnosisPrompt.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblDiagnosisPrompt.Location = new System.Drawing.Point(15, 35);
@@ -236,6 +269,7 @@ namespace HeathEd
             // 
             // lblTotalCost
             // 
+            this.lblTotalCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalCost.AutoSize = true;
             this.lblTotalCost.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblTotalCost.ForeColor = System.Drawing.Color.DarkGreen;
@@ -247,6 +281,7 @@ namespace HeathEd
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.LightGray;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -271,11 +306,10 @@ namespace HeathEd
             this.Controls.Add(this.grpImages);
             this.Controls.Add(this.grpPatientInfo);
             this.Controls.Add(this.lblCaseTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
             this.Name = "PatientDiagnosisForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "HeathEd - Chẩn đoán tương tác";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PatientDiagnosisForm_Load);
             this.grpPatientInfo.ResumeLayout(false);
             this.grpPatientInfo.PerformLayout();

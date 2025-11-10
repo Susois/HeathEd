@@ -8,9 +8,12 @@ namespace HeathEd
 {
     public partial class StudentMainForm : Form
     {
-        public StudentMainForm()
+        private LoginForm loginForm;
+
+        public StudentMainForm(LoginForm loginForm)
         {
             InitializeComponent();
+            this.loginForm = loginForm;
         }
 
         private void StudentMainForm_Load(object sender, EventArgs e)
@@ -135,15 +138,22 @@ namespace HeathEd
             if (result == DialogResult.Yes)
             {
                 UserSession.Clear();
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
+
+                // Reset login form fields
+                if (loginForm != null)
+                {
+                    loginForm.ResetForm();
+                    loginForm.Show();
+                }
+
                 this.Close();
             }
         }
 
         private void StudentMainForm_Load_1(object sender, EventArgs e)
         {
-
+            lblWelcome.Text = $"Xin chào, {UserSession.FullName}";
+            LoadModules();
         }
     }
 }
