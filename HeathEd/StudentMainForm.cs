@@ -127,6 +127,12 @@ namespace HeathEd
             LoadModules();
         }
 
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            StudentDashboardForm dashboardForm = new StudentDashboardForm();
+            dashboardForm.ShowDialog();
+        }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(

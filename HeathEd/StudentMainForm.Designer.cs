@@ -11,6 +11,7 @@ namespace HeathEd
         private FlowLayoutPanel flowPanelModules;
         private Button btnRefresh;
         private Button btnLogout;
+        private Button btnDashboard;
 
         protected override void Dispose(bool disposing)
         {
@@ -28,11 +29,11 @@ namespace HeathEd
             this.flowPanelModules = new System.Windows.Forms.FlowLayoutPanel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblWelcome
-            //
-            this.lblWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblWelcome.ForeColor = System.Drawing.Color.DarkSlateBlue;
@@ -43,7 +44,7 @@ namespace HeathEd
             this.lblWelcome.Text = "Xin chào, Sinh viên";
             // 
             // lblTitle
-            //
+            // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
@@ -54,9 +55,9 @@ namespace HeathEd
             this.lblTitle.Text = "DANH SÁCH HỌC PHẦN";
             // 
             // flowPanelModules
-            //
-            this.flowPanelModules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            // 
+            this.flowPanelModules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowPanelModules.AutoScroll = true;
             this.flowPanelModules.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -67,22 +68,22 @@ namespace HeathEd
             this.flowPanelModules.TabIndex = 2;
             // 
             // btnRefresh
-            //
+            // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefresh.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(788, 20);
+            this.btnRefresh.Location = new System.Drawing.Point(778, 20);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(135, 40);
+            this.btnRefresh.Size = new System.Drawing.Size(145, 40);
             this.btnRefresh.TabIndex = 3;
-            this.btnRefresh.Text = "🔄 Làm mới";
+            this.btnRefresh.Text = "Lam moi";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnLogout
-            //
+            // 
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.BackColor = System.Drawing.Color.LightGray;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -91,23 +92,37 @@ namespace HeathEd
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(135, 40);
             this.btnLogout.TabIndex = 4;
-            this.btnLogout.Text = "🚪 Đăng xuất";
+            this.btnLogout.Text = "Dang xuat";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDashboard.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.Location = new System.Drawing.Point(594, 20);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(161, 40);
+            this.btnDashboard.TabIndex = 5;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // StudentMainForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1125, 600);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.flowPanelModules);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblWelcome);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-            this.MaximizeBox = true;
             this.Name = "StudentMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HeathEd - Sinh viên";

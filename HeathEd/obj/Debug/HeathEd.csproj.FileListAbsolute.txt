@@ -23,3 +23,4 @@ D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.ExaminationResultsForm.
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.ExaminationSelectionForm.resources
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.csproj.Up2Date
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.exe.config
+D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.StudentDashboardForm.resources
