@@ -17,10 +17,10 @@ namespace HeathEd
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -414,11 +414,11 @@ namespace HeathEd
             // 
             // chartAccuracy
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chartAccuracy.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            this.chartAccuracy.ChartAreas.Add(chartArea1);
             this.chartAccuracy.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Name = "Legend1";
-            this.chartAccuracy.Legends.Add(legend5);
+            legend1.Name = "Legend1";
+            this.chartAccuracy.Legends.Add(legend1);
             this.chartAccuracy.Location = new System.Drawing.Point(10, 170);
             this.chartAccuracy.Name = "chartAccuracy";
             this.chartAccuracy.Size = new System.Drawing.Size(480, 170);
@@ -427,11 +427,11 @@ namespace HeathEd
             // 
             // chartCompletion
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartCompletion.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.chartCompletion.ChartAreas.Add(chartArea2);
             this.chartCompletion.Dock = System.Windows.Forms.DockStyle.Top;
-            legend6.Name = "Legend1";
-            this.chartCompletion.Legends.Add(legend6);
+            legend2.Name = "Legend1";
+            this.chartCompletion.Legends.Add(legend2);
             this.chartCompletion.Location = new System.Drawing.Point(10, 10);
             this.chartCompletion.Name = "chartCompletion";
             this.chartCompletion.Size = new System.Drawing.Size(480, 160);

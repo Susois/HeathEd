@@ -33,14 +33,18 @@ namespace HeathEd
                 using (SqlConnection conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
+                    // Chỉ hiển thị các xét nghiệm có kết quả trong database cho ca bệnh này
                     string query = @"
-                        SELECT ExaminationTypeID, ExaminationCode, ExaminationName, Description, Cost
-                        FROM ExaminationTypes
-                        WHERE IsActive = 1
-                        ORDER BY ExaminationCode";
+                        SELECT et.ExaminationTypeID, et.ExaminationCode, et.ExaminationName, et.Description, et.Cost
+                        FROM ExaminationTypes et
+                        INNER JOIN CaseExaminationResults cer ON et.ExaminationTypeID = cer.ExaminationTypeID
+                        WHERE et.IsActive = 1 AND cer.CaseID = @CaseID
+                        ORDER BY et.ExaminationCode";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
+                        cmd.Parameters.AddWithValue("@CaseID", caseId);
+
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             lstExaminations.Items.Clear();

@@ -151,53 +151,13 @@ namespace HeathEd
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCaseTitle.Text))
+            // Mở form thêm ca bệnh mới với đầy đủ thông tin
+            AddCaseStudyForm addForm = new AddCaseStudyForm();
+            if (addForm.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Vui lòng nhập tiêu đề ca bệnh!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCaseTitle.Focus();
-                return;
-            }
-
-            if (cboModule.SelectedValue == null)
-            {
-                MessageBox.Show("Vui lòng chọn lớp học!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                using (SqlConnection conn = DatabaseHelper.GetConnection())
-                {
-                    conn.Open();
-                    string query = @"
-                        INSERT INTO CaseStudies (CaseTitle, Description, Symptoms, Diagnosis, ModuleID, IsActive, CreatedDate)
-                        VALUES (@CaseTitle, @Description, @Symptoms, @Diagnosis, @ModuleID, @IsActive, GETDATE())";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@CaseTitle", txtCaseTitle.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Description", txtDescription.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Symptoms", txtSymptoms.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Diagnosis", txtDiagnosis.Text.Trim());
-                        cmd.Parameters.AddWithValue("@ModuleID", cboModule.SelectedValue);
-                        cmd.Parameters.AddWithValue("@IsActive", chkIsActive.Checked);
-
-                        cmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Thêm ca bệnh thành công!", "Thành công",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        ClearForm();
-                        LoadCases();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi thêm ca bệnh: {ex.Message}", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Refresh danh sách ca bệnh
+                ClearForm();
+                LoadCases();
             }
         }
 
@@ -210,56 +170,13 @@ namespace HeathEd
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtCaseTitle.Text))
+            // Mở form cập nhật ca bệnh với dữ liệu có sẵn
+            EditCaseStudyForm editForm = new EditCaseStudyForm(selectedCaseId);
+            if (editForm.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Vui lòng nhập tiêu đề ca bệnh!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCaseTitle.Focus();
-                return;
-            }
-
-            try
-            {
-                using (SqlConnection conn = DatabaseHelper.GetConnection())
-                {
-                    conn.Open();
-                    string query = @"
-                        UPDATE CaseStudies
-                        SET CaseTitle = @CaseTitle,
-                            Description = @Description,
-                            Symptoms = @Symptoms,
-                            Diagnosis = @Diagnosis,
-                            ModuleID = @ModuleID,
-                            IsActive = @IsActive
-                        WHERE CaseID = @CaseID";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@CaseTitle", txtCaseTitle.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Description", txtDescription.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Symptoms", txtSymptoms.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Diagnosis", txtDiagnosis.Text.Trim());
-                        cmd.Parameters.AddWithValue("@ModuleID", cboModule.SelectedValue);
-                        cmd.Parameters.AddWithValue("@IsActive", chkIsActive.Checked);
-                        cmd.Parameters.AddWithValue("@CaseID", selectedCaseId);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Cập nhật ca bệnh thành công!", "Thành công",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            ClearForm();
-                            LoadCases();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi cập nhật ca bệnh: {ex.Message}", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Refresh danh sách ca bệnh
+                ClearForm();
+                LoadCases();
             }
         }
 
@@ -273,7 +190,7 @@ namespace HeathEd
             }
 
             DialogResult result = MessageBox.Show(
-                "Bạn có chắc muốn xóa ca bệnh này?",
+                "Bạn có chắc muốn xóa ca bệnh này?\n\nLƯU Ý: Tất cả dữ liệu liên quan (kết quả xét nghiệm, bài làm của sinh viên, hình ảnh...) sẽ bị xóa vĩnh viễn!",
                 "Xác nhận xóa",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
@@ -285,18 +202,79 @@ namespace HeathEd
                     using (SqlConnection conn = DatabaseHelper.GetConnection())
                     {
                         conn.Open();
-                        string query = "DELETE FROM CaseStudies WHERE CaseID = @CaseID";
 
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        // Sử dụng transaction để đảm bảo tính toàn vẹn dữ liệu
+                        using (SqlTransaction transaction = conn.BeginTransaction())
                         {
-                            cmd.Parameters.AddWithValue("@CaseID", selectedCaseId);
-                            cmd.ExecuteNonQuery();
+                            try
+                            {
+                                // 1. Xóa StudentDiagnosisSubmissions (qua AttemptID)
+                                string deleteSubmissions = @"
+                                    DELETE FROM StudentDiagnosisSubmissions
+                                    WHERE AttemptID IN (SELECT AttemptID FROM StudentDiagnosisAttempts WHERE CaseID = @CaseID)";
+                                using (SqlCommand cmd = new SqlCommand(deleteSubmissions, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@CaseID", selectedCaseId);
+                                    cmd.ExecuteNonQuery();
+                                }
 
-                            MessageBox.Show("Xóa ca bệnh thành công!", "Thành công",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                // 2. Xóa StudentExaminationRequests (qua AttemptID)
+                                string deleteExamRequests = @"
+                                    DELETE FROM StudentExaminationRequests
+                                    WHERE AttemptID IN (SELECT AttemptID FROM StudentDiagnosisAttempts WHERE CaseID = @CaseID)";
+                                using (SqlCommand cmd = new SqlCommand(deleteExamRequests, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@CaseID", selectedCaseId);
+                                    cmd.ExecuteNonQuery();
+                                }
 
-                            ClearForm();
-                            LoadCases();
+                                // 3. Xóa StudentDiagnosisAttempts
+                                string deleteAttempts = "DELETE FROM StudentDiagnosisAttempts WHERE CaseID = @CaseID";
+                                using (SqlCommand cmd = new SqlCommand(deleteAttempts, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@CaseID", selectedCaseId);
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                                // 4. Xóa CaseExaminationResults
+                                string deleteExamResults = "DELETE FROM CaseExaminationResults WHERE CaseID = @CaseID";
+                                using (SqlCommand cmd = new SqlCommand(deleteExamResults, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@CaseID", selectedCaseId);
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                                // 5. Xóa CaseImages
+                                string deleteImages = "DELETE FROM CaseImages WHERE CaseID = @CaseID";
+                                using (SqlCommand cmd = new SqlCommand(deleteImages, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@CaseID", selectedCaseId);
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                                // 6. Cuối cùng xóa CaseStudies
+                                string deleteCase = "DELETE FROM CaseStudies WHERE CaseID = @CaseID";
+                                using (SqlCommand cmd = new SqlCommand(deleteCase, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@CaseID", selectedCaseId);
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                                // Commit transaction
+                                transaction.Commit();
+
+                                MessageBox.Show("Xóa ca bệnh thành công!", "Thành công",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                ClearForm();
+                                LoadCases();
+                            }
+                            catch (Exception ex)
+                            {
+                                // Rollback nếu có lỗi
+                                transaction.Rollback();
+                                throw ex;
+                            }
                         }
                     }
                 }

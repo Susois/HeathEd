@@ -72,12 +72,11 @@ namespace HeathEd
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(20, 530);
+            this.btnLogout.Location = new System.Drawing.Point(35, 538);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(126, 50);
+            this.btnLogout.Size = new System.Drawing.Size(166, 50);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "Dang xuat";
-            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 

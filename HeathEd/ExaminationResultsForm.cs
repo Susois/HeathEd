@@ -12,6 +12,7 @@ namespace HeathEd
     {
         private int caseId;
         private int attemptId;
+        private bool isLoadingData = false; // Flag để ngăn vòng lặp vô hạn
 
         public ExaminationResultsForm(int caseId, int attemptId)
         {
@@ -22,7 +23,16 @@ namespace HeathEd
 
         private void ExaminationResultsForm_Load(object sender, EventArgs e)
         {
+            // Thêm handler cho DataError để tránh hiển thị dialog lỗi
+            dgvExaminations.DataError += dgvExaminations_DataError;
             LoadRequestedExaminations();
+        }
+
+        private void dgvExaminations_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // Suppress DataError để tránh hiển thị dialog lỗi
+            e.ThrowException = false;
+            System.Diagnostics.Debug.WriteLine($"DataGridView DataError: {e.Exception?.Message}");
         }
 
         private void LoadRequestedExaminations()
@@ -97,6 +107,9 @@ namespace HeathEd
 
         private void dgvExaminations_SelectionChanged(object sender, EventArgs e)
         {
+            // Ngăn vòng lặp vô hạn khi đang load data
+            if (isLoadingData) return;
+
             if (dgvExaminations.SelectedRows.Count > 0)
             {
                 int requestId = Convert.ToInt32(dgvExaminations.SelectedRows[0].Cells["RequestID"].Value);
@@ -227,8 +240,21 @@ namespace HeathEd
                     }
                 }
 
-                // Refresh the list to update IsViewed status
-                LoadRequestedExaminations();
+                // Cập nhật trực tiếp giá trị IsViewed trong DataGridView mà không reload toàn bộ data
+                // Điều này tránh vòng lặp vô hạn
+                if (dgvExaminations.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dgvExaminations.SelectedRows[0];
+                    if (selectedRow.Cells["IsViewed"] != null)
+                    {
+                        // Cập nhật giá trị trực tiếp trong DataTable
+                        DataRowView drv = selectedRow.DataBoundItem as DataRowView;
+                        if (drv != null)
+                        {
+                            drv["IsViewed"] = true;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

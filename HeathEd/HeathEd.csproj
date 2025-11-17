@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCaseStudyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCaseStudyForm.Designer.cs">
+      <DependentUpon>AddCaseStudyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
       <DependentUpon>CourseDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="EditCaseStudyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCaseStudyForm.Designer.cs">
+      <DependentUpon>EditCaseStudyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExaminationResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,8 +150,14 @@
       <DependentUpon>StudentDashboardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserSession.cs" />
+    <EmbeddedResource Include="AddCaseStudyForm.resx">
+      <DependentUpon>AddCaseStudyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseDetailForm.resx">
       <DependentUpon>CourseDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCaseStudyForm.resx">
+      <DependentUpon>EditCaseStudyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExaminationResultsForm.resx">
       <DependentUpon>ExaminationResultsForm.cs</DependentUpon>

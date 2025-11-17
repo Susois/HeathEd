@@ -70,12 +70,20 @@ namespace HeathEd
                 {
                     conn.Open();
                     string query = @"
-                        SELECT CaseID, CaseTitle, Description, Symptoms, Diagnosis,
-                               ISNULL(IsInteractive, 0) AS IsInteractive,
-                               ISNULL(DifficultyLevel, 'Medium') AS DifficultyLevel
-                        FROM CaseStudies
-                        WHERE ModuleID = @ModuleID AND IsActive = 1
-                        ORDER BY CreatedDate DESC";
+                        SELECT cs.CaseID, cs.CaseTitle, cs.Description, cs.Symptoms, cs.Diagnosis,
+                               ISNULL(cs.IsInteractive, 0) AS IsInteractive,
+                               ISNULL(cs.DifficultyLevel, 'Medium') AS DifficultyLevel,
+                               CASE
+                                   WHEN cs.IsInteractive = 1
+                                        AND cs.Symptoms IS NOT NULL AND cs.Symptoms <> ''
+                                        AND cs.Diagnosis IS NOT NULL AND cs.Diagnosis <> ''
+                                        AND EXISTS (SELECT 1 FROM CaseExaminationResults cer WHERE cer.CaseID = cs.CaseID)
+                                   THEN N'Có thể chẩn đoán'
+                                   ELSE N'Chưa thể chẩn đoán'
+                               END AS DiagnosisStatus
+                        FROM CaseStudies cs
+                        WHERE cs.ModuleID = @ModuleID AND cs.IsActive = 1
+                        ORDER BY cs.CreatedDate DESC";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -114,6 +122,12 @@ namespace HeathEd
                         {
                             dgvCases.Columns["DifficultyLevel"].HeaderText = "Độ khó";
                             dgvCases.Columns["DifficultyLevel"].Width = 80;
+                        }
+
+                        if (dgvCases.Columns["DiagnosisStatus"] != null)
+                        {
+                            dgvCases.Columns["DiagnosisStatus"].HeaderText = "Trạng thái";
+                            dgvCases.Columns["DiagnosisStatus"].Width = 150;
                         }
 
                         lblCaseCount.Text = $"Tổng số: {dt.Rows.Count} ca bệnh";
