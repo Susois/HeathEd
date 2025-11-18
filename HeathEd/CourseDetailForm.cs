@@ -183,11 +183,21 @@ namespace HeathEd
             DataGridViewRow row = dgvCases.SelectedRows[0];
             int caseId = Convert.ToInt32(row.Cells["CaseID"].Value);
             bool isInteractive = Convert.ToBoolean(row.Cells["IsInteractive"].Value);
+            string diagnosisStatus = row.Cells["DiagnosisStatus"].Value?.ToString() ?? "";
 
             if (!isInteractive)
             {
                 MessageBox.Show("Ca bệnh này không hỗ trợ chế độ thực hành chẩn đoán!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Kiểm tra xem ca bệnh có đầy đủ dữ liệu để chẩn đoán không
+            if (diagnosisStatus != "Có thể chẩn đoán")
+            {
+                MessageBox.Show("Ca bệnh này chưa có đầy đủ dữ liệu để chẩn đoán!\n\n" +
+                    "Cần có: Triệu chứng, Chẩn đoán và Kết quả xét nghiệm.", "Không thể chẩn đoán",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

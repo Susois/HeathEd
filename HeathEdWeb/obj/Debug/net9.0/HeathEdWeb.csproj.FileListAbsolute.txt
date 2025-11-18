@@ -146,3 +146,5 @@ D:\dotnet\BTn_HealthEd\HeathEd\HeathEdWeb\obj\Debug\net9.0\refint\HeathEdWeb.dll
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEdWeb\obj\Debug\net9.0\HeathEdWeb.pdb
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEdWeb\obj\Debug\net9.0\HeathEdWeb.genruntimeconfig.cache
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEdWeb\obj\Debug\net9.0\ref\HeathEdWeb.dll
+D:\dotnet\BTn_HealthEd\HeathEd\HeathEdWeb\obj\Debug\net9.0\HeathEdWeb.sourcelink.json
+D:\dotnet\BTn_HealthEd\HeathEd\HeathEdWeb\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

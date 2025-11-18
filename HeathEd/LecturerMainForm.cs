@@ -21,11 +21,14 @@ namespace HeathEd
 
         private void LecturerMainForm_Load(object sender, EventArgs e)
         {
-            lblWelcome.Text = $"Xin chào, {UserSession.FullName}";
+            lblWelcome.Text = $"Xin chào,\n {UserSession.FullName}";
 
             // Load Dashboard by default
             btnDashboard.PerformClick();
         }
+
+
+
 
         private void SetActiveButton(Button button)
         {
@@ -153,7 +156,7 @@ namespace HeathEd
                     {
                         cmd.Parameters.AddWithValue("@LecturerID", UserSession.UserId);
                         int moduleCount = (int)cmd.ExecuteScalar();
-                        CreateStatBox(statsPanel, "Lớp học", moduleCount.ToString(), Color.MediumSlateBlue, 20);
+                        CreateStatBox(statsPanel, "Lớp học", moduleCount.ToString(), Color.MediumSlateBlue, 0);
                     }
 
                     // Student count
@@ -166,7 +169,7 @@ namespace HeathEd
                     {
                         cmd.Parameters.AddWithValue("@LecturerID", UserSession.UserId);
                         int studentCount = (int)cmd.ExecuteScalar();
-                        CreateStatBox(statsPanel, "Sinh viên", studentCount.ToString(), Color.SeaGreen, 300);
+                        CreateStatBox(statsPanel, "Sinh viên", studentCount.ToString(), Color.SeaGreen, 250);
                     }
 
                     // Case count
@@ -179,7 +182,7 @@ namespace HeathEd
                     {
                         cmd.Parameters.AddWithValue("@LecturerID", UserSession.UserId);
                         int caseCount = (int)cmd.ExecuteScalar();
-                        CreateStatBox(statsPanel, "Ca bệnh", caseCount.ToString(), Color.Coral, 580);
+                        CreateStatBox(statsPanel, "Ca bệnh", caseCount.ToString(), Color.Coral, 500);
                     }
 
                     // Total attempts
@@ -193,7 +196,7 @@ namespace HeathEd
                     {
                         cmd.Parameters.AddWithValue("@LecturerID", UserSession.UserId);
                         int attemptCount = (int)cmd.ExecuteScalar();
-                        CreateStatBox(statsPanel, "Lượt làm bài", attemptCount.ToString(), Color.DodgerBlue, 860);
+                        CreateStatBox(statsPanel, "Lượt làm bài", attemptCount.ToString(), Color.DodgerBlue, 750);
                     }
                 }
             }
@@ -298,7 +301,7 @@ namespace HeathEd
                                     ForeColor = Color.White,
                                     FlatStyle = FlatStyle.Flat,
                                     Font = new Font("Segoe UI", 9F, FontStyle.Bold),
-                                    Location = new Point(modulePanel.Width - 260, 95),
+                                    Location = new Point(modulePanel.Width - 130, 95),
                                     Size = new Size(120, 35),
                                     Tag = moduleId
                                 };
@@ -308,23 +311,23 @@ namespace HeathEd
                                     dashForm.ShowDialog();
                                 };
 
-                                Button editBtn = new Button
-                                {
-                                    Text = "Chi tiết",
-                                    BackColor = Color.MediumSlateBlue,
-                                    ForeColor = Color.White,
-                                    FlatStyle = FlatStyle.Flat,
-                                    Font = new Font("Segoe UI", 9F, FontStyle.Bold),
-                                    Location = new Point(modulePanel.Width - 130, 95),
-                                    Size = new Size(120, 35),
-                                    Tag = moduleId
-                                };
+                                //Button editBtn = new Button
+                                //{
+                                //    Text = "Chi tiết",
+                                //    BackColor = Color.MediumSlateBlue,
+                                //    ForeColor = Color.White,
+                                //    FlatStyle = FlatStyle.Flat,
+                                //    Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                                //    Location = new Point(modulePanel.Width - 130, 95),
+                                //    Size = new Size(120, 35),
+                                //    Tag = moduleId
+                                //};
 
                                 modulePanel.Controls.Add(codeLabel);
                                 modulePanel.Controls.Add(nameLabel);
                                 modulePanel.Controls.Add(infoLabel);
                                 modulePanel.Controls.Add(dashboardBtn);
-                                modulePanel.Controls.Add(editBtn);
+                                //modulePanel.Controls.Add(editBtn);
 
                                 flow.Controls.Add(modulePanel);
                             }

@@ -114,6 +114,13 @@ namespace HeathEd
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
+                            // Tính toán kích thước động để hiển thị 3 lớp/hàng
+                            int panelWidth = flowPanelModules.ClientSize.Width - flowPanelModules.Padding.Horizontal;
+                            int margin = 10;
+                            int moduleWidth = (panelWidth - (margin * 8)) / 3; // Chia cho 3 cột
+                            if (moduleWidth < 300) moduleWidth = 300; // Tối thiểu 300px
+                            if (moduleWidth > 400) moduleWidth = 400; // Tối đa 400px
+
                             while (reader.Read())
                             {
                                 int moduleId = reader.GetInt32(0);
@@ -125,25 +132,27 @@ namespace HeathEd
                                 // Tạo GroupBox cho mỗi học phần
                                 GroupBox grpModule = new GroupBox();
                                 grpModule.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-                                grpModule.Size = new Size(420, 180);
+                                grpModule.Size = new Size(moduleWidth, 180);
                                 grpModule.Text = moduleCode;
-                                grpModule.Margin = new Padding(10);
+                                grpModule.Margin = new Padding(margin);
 
                                 Label lblModuleName = new Label();
                                 lblModuleName.Text = moduleName;
                                 lblModuleName.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
                                 lblModuleName.Location = new Point(15, 30);
+                                lblModuleName.MaximumSize = new Size(moduleWidth - 30, 50);
                                 lblModuleName.AutoSize = true;
 
                                 Label lblLecturer = new Label();
                                 lblLecturer.Text = $"GV: {lecturerName}";
                                 lblLecturer.Location = new Point(15, 60);
+                                lblLecturer.MaximumSize = new Size(moduleWidth - 30, 20);
                                 lblLecturer.AutoSize = true;
 
                                 Label lblDesc = new Label();
                                 lblDesc.Text = description;
                                 lblDesc.Location = new Point(15, 85);
-                                lblDesc.Size = new Size(380, 40);
+                                lblDesc.Size = new Size(moduleWidth - 30, 40);
                                 lblDesc.Font = new Font("Segoe UI", 9F);
                                 lblDesc.ForeColor = Color.Gray;
 
@@ -152,7 +161,7 @@ namespace HeathEd
                                 btnDetail.BackColor = Color.MediumSlateBlue;
                                 btnDetail.ForeColor = Color.White;
                                 btnDetail.FlatStyle = FlatStyle.Flat;
-                                btnDetail.Location = new Point(270, 130);
+                                btnDetail.Location = new Point(moduleWidth - 145, 130);
                                 btnDetail.Size = new Size(130, 35);
                                 btnDetail.Tag = moduleId;
                                 btnDetail.Click += (s, ev) => BtnDetail_Click(moduleId, moduleName);

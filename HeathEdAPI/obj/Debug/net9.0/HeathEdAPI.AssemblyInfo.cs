@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeathEdAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c515557d1145dbfd55eeb0b7289f5602cd08c489")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7eef8cf4b705be15b2f33c4a9d56556c47a6f2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeathEdAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeathEdAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

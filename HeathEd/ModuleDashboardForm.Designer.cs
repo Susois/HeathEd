@@ -18,9 +18,7 @@ namespace HeathEd
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -417,21 +415,17 @@ namespace HeathEd
             chartArea1.Name = "ChartArea1";
             this.chartAccuracy.ChartAreas.Add(chartArea1);
             this.chartAccuracy.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartAccuracy.Legends.Add(legend1);
-            this.chartAccuracy.Location = new System.Drawing.Point(10, 170);
+            this.chartAccuracy.Location = new System.Drawing.Point(10, 10);
             this.chartAccuracy.Name = "chartAccuracy";
-            this.chartAccuracy.Size = new System.Drawing.Size(480, 170);
+            this.chartAccuracy.Size = new System.Drawing.Size(480, 330);
             this.chartAccuracy.TabIndex = 1;
             this.chartAccuracy.Text = "chart2";
+            this.chartAccuracy.Click += new System.EventHandler(this.chartAccuracy_Click);
             // 
             // chartCompletion
             // 
             chartArea2.Name = "ChartArea1";
             this.chartCompletion.ChartAreas.Add(chartArea2);
-            this.chartCompletion.Dock = System.Windows.Forms.DockStyle.Top;
-            legend2.Name = "Legend1";
-            this.chartCompletion.Legends.Add(legend2);
             this.chartCompletion.Location = new System.Drawing.Point(10, 10);
             this.chartCompletion.Name = "chartCompletion";
             this.chartCompletion.Size = new System.Drawing.Size(480, 160);

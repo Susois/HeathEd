@@ -269,27 +269,34 @@ namespace HeathEd
 
         private void LoadCompletionChart(SqlConnection conn)
         {
+            // Giữ nguyên ChartArea từ Designer
             chartCompletion.Series.Clear();
             chartCompletion.Titles.Clear();
             chartCompletion.Titles.Add("Tỉ lệ sinh viên làm bài");
 
+            // Dùng Legend2 có sẵn trong Designer
+            chartCompletion.Legends["Legend2"].Enabled = true;
+            chartCompletion.Legends["Legend2"].Docking = Docking.Bottom;
+            chartCompletion.Legends["Legend2"].Alignment = StringAlignment.Center;
+
             Series series = new Series("Sinh viên");
             series.ChartType = SeriesChartType.Pie;
+            series.Legend = "Legend2"; // <-- GÁN CHÍNH XÁC LEGEND
 
             string query = @"
-                SELECT
-                    SUM(CASE WHEN AttemptCount > 0 THEN 1 ELSE 0 END) as Active,
-                    SUM(CASE WHEN AttemptCount = 0 THEN 1 ELSE 0 END) as Inactive
-                FROM (
-                    SELECT
-                        sm.StudentID,
-                        COUNT(sda.AttemptID) as AttemptCount
-                    FROM StudentModules sm
-                    LEFT JOIN StudentDiagnosisAttempts sda ON sm.StudentID = sda.StudentID
-                        AND sda.CaseID IN (SELECT CaseID FROM CaseStudies WHERE ModuleID = @ModuleID)
-                    WHERE sm.ModuleID = @ModuleID
-                    GROUP BY sm.StudentID
-                ) subquery";
+        SELECT
+            SUM(CASE WHEN AttemptCount > 0 THEN 1 ELSE 0 END) as Active,
+            SUM(CASE WHEN AttemptCount = 0 THEN 1 ELSE 0 END) as Inactive
+        FROM (
+            SELECT
+                sm.StudentID,
+                COUNT(sda.AttemptID) as AttemptCount
+            FROM StudentModules sm
+            LEFT JOIN StudentDiagnosisAttempts sda ON sm.StudentID = sda.StudentID
+                AND sda.CaseID IN (SELECT CaseID FROM CaseStudies WHERE ModuleID = @ModuleID)
+            WHERE sm.ModuleID = @ModuleID
+            GROUP BY sm.StudentID
+        ) subquery";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -311,26 +318,30 @@ namespace HeathEd
             }
 
             chartCompletion.Series.Add(series);
-            chartCompletion.Legends[0].Enabled = true;
         }
-
         private void LoadAccuracyChart(SqlConnection conn)
         {
             chartAccuracy.Series.Clear();
             chartAccuracy.Titles.Clear();
             chartAccuracy.Titles.Add("Tỉ lệ đoán đúng/sai");
 
+            // Dùng Legend1 có sẵn trong Designer
+            chartAccuracy.Legends["Legend1"].Enabled = true;
+            chartAccuracy.Legends["Legend1"].Docking = Docking.Bottom;
+            chartAccuracy.Legends["Legend1"].Alignment = StringAlignment.Center;
+
             Series series = new Series("Kết quả");
             series.ChartType = SeriesChartType.Pie;
+            series.Legend = "Legend1"; // <-- GÁN ĐÚNG LEGEND
 
             string query = @"
-                SELECT
-                    SUM(CASE WHEN sds.IsCorrect = 1 THEN 1 ELSE 0 END) as Correct,
-                    SUM(CASE WHEN sds.IsCorrect = 0 THEN 1 ELSE 0 END) as Incorrect
-                FROM StudentDiagnosisAttempts sda
-                INNER JOIN StudentDiagnosisSubmissions sds ON sda.AttemptID = sds.AttemptID
-                INNER JOIN CaseStudies cs ON sda.CaseID = cs.CaseID
-                WHERE cs.ModuleID = @ModuleID AND sda.IsCompleted = 1";
+        SELECT
+            SUM(CASE WHEN sds.IsCorrect = 1 THEN 1 ELSE 0 END) as Correct,
+            SUM(CASE WHEN sds.IsCorrect = 0 THEN 1 ELSE 0 END) as Incorrect
+        FROM StudentDiagnosisAttempts sda
+        INNER JOIN StudentDiagnosisSubmissions sds ON sda.AttemptID = sds.AttemptID
+        INNER JOIN CaseStudies cs ON sda.CaseID = cs.CaseID
+        WHERE cs.ModuleID = @ModuleID AND sda.IsCompleted = 1";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -360,7 +371,6 @@ namespace HeathEd
             }
 
             chartAccuracy.Series.Add(series);
-            chartAccuracy.Legends[0].Enabled = true;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -377,5 +387,11 @@ namespace HeathEd
         {
 
         }
+
+        private void chartAccuracy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

@@ -61,7 +61,7 @@ namespace HeathEd
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(250, 600);
+            this.panelSidebar.Size = new System.Drawing.Size(308, 600);
             this.panelSidebar.TabIndex = 0;
             // 
             // btnLogout
@@ -75,7 +75,7 @@ namespace HeathEd
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Location = new System.Drawing.Point(35, 538);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(166, 50);
+            this.btnLogout.Size = new System.Drawing.Size(224, 50);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "Dang xuat";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -149,9 +149,9 @@ namespace HeathEd
             // 
             this.panelContent.BackColor = System.Drawing.Color.White;
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(250, 0);
+            this.panelContent.Location = new System.Drawing.Point(308, 0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(875, 600);
+            this.panelContent.Size = new System.Drawing.Size(817, 600);
             this.panelContent.TabIndex = 1;
             // 
             // LecturerMainForm
