@@ -26,3 +26,5 @@ D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.StudentDashboardForm.re
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.ModuleDashboardForm.resources
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.AddCaseStudyForm.resources
 D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.EditCaseStudyForm.resources
+D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.ChatbotForm.resources
+D:\dotnet\BTn_HealthEd\HeathEd\HeathEd\obj\Debug\HeathEd.exe.config

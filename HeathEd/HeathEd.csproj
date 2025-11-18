@@ -56,6 +56,12 @@
     <Compile Include="AddCaseStudyForm.Designer.cs">
       <DependentUpon>AddCaseStudyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChatbotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatbotForm.Designer.cs">
+      <DependentUpon>ChatbotForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,7 @@
     <Compile Include="ExaminationSelectionForm.Designer.cs">
       <DependentUpon>ExaminationSelectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GeminiRagService.cs" />
     <Compile Include="LecturerDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +159,9 @@
     <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="AddCaseStudyForm.resx">
       <DependentUpon>AddCaseStudyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatbotForm.resx">
+      <DependentUpon>ChatbotForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseDetailForm.resx">
       <DependentUpon>CourseDetailForm.cs</DependentUpon>

@@ -9,11 +9,80 @@ namespace HeathEd
     public partial class StudentMainForm : Form
     {
         private LoginForm loginForm;
+        private Button btnChatbot;
+        private ChatbotForm chatbotForm;
 
         public StudentMainForm(LoginForm loginForm)
         {
             InitializeComponent();
             this.loginForm = loginForm;
+            CreateFloatingChatbotButton();
+        }
+
+        private void CreateFloatingChatbotButton()
+        {
+            // Tạo nút chatbot tròn floating
+            btnChatbot = new Button();
+            btnChatbot.Size = new Size(60, 60);
+            btnChatbot.Location = new Point(this.ClientSize.Width - 80, this.ClientSize.Height - 80);
+            btnChatbot.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnChatbot.BackColor = Color.FromArgb(0, 122, 204);
+            btnChatbot.ForeColor = Color.White;
+            btnChatbot.FlatStyle = FlatStyle.Flat;
+            btnChatbot.FlatAppearance.BorderSize = 0;
+            btnChatbot.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            btnChatbot.Text = "AI";
+            btnChatbot.Cursor = Cursors.Hand;
+
+            // Làm nút tròn
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddEllipse(0, 0, btnChatbot.Width, btnChatbot.Height);
+            btnChatbot.Region = new Region(path);
+
+            // Tooltip
+            ToolTip tooltip = new ToolTip();
+            tooltip.SetToolTip(btnChatbot, "Chatbot Y Te AI");
+
+            // Event click
+            btnChatbot.Click += BtnChatbot_Click;
+
+            // Hover effect
+            btnChatbot.MouseEnter += (s, e) => btnChatbot.BackColor = Color.FromArgb(0, 100, 180);
+            btnChatbot.MouseLeave += (s, e) => btnChatbot.BackColor = Color.FromArgb(0, 122, 204);
+
+            this.Controls.Add(btnChatbot);
+            btnChatbot.BringToFront();
+        }
+
+        private void BtnChatbot_Click(object sender, EventArgs e)
+        {
+            if (chatbotForm == null || chatbotForm.IsDisposed)
+            {
+                chatbotForm = new ChatbotForm();
+
+                // Đặt vị trí chatbot ở góc phải dưới màn hình
+                int x = this.Location.X + this.Width - chatbotForm.Width - 20;
+                int y = this.Location.Y + this.Height - chatbotForm.Height - 80;
+
+                // Đảm bảo không vượt ra ngoài màn hình
+                if (x < 0) x = 10;
+                if (y < 0) y = 10;
+
+                chatbotForm.Location = new Point(x, y);
+                chatbotForm.Show();
+            }
+            else
+            {
+                if (chatbotForm.Visible)
+                {
+                    chatbotForm.Hide();
+                }
+                else
+                {
+                    chatbotForm.Show();
+                    chatbotForm.BringToFront();
+                }
+            }
         }
 
         private void StudentMainForm_Load(object sender, EventArgs e)

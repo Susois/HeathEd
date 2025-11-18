@@ -95,7 +95,7 @@ namespace HeathEd
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1270, 15);
+            this.btnClose.Location = new System.Drawing.Point(880, 15);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(110, 40);
             this.btnClose.TabIndex = 1;

@@ -44,9 +44,10 @@ namespace HeathEd
             this.lblWelcome.ForeColor = System.Drawing.Color.White;
             this.lblWelcome.Location = new System.Drawing.Point(20, 20);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(223, 30);
+            this.lblWelcome.Size = new System.Drawing.Size(123, 60);
             this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "Xin chào, Giảng viên";
+            this.lblWelcome.Text = "Xin chào,\r\nGiảng viên";
+            this.lblWelcome.Click += new System.EventHandler(this.lblWelcome_Click);
             // 
             // panelSidebar
             // 

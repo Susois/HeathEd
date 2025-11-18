@@ -526,5 +526,10 @@ namespace HeathEd
             lblWelcome.Text = $"Xin chào, {UserSession.FullName}";
             btnDashboard.PerformClick();
         }
+
+        private void lblWelcome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
